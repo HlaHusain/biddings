@@ -431,9 +431,8 @@ class mainController extends Controller
         {
             try {
                 $statusCode = 200;
-                //$userId=Session::get('id');
                 $bids = Bid::where('isdeleted', 0)->where('status','true')->get();
-                //$transactions=Transaction::all();
+
 
 
                 foreach ($bids as $bid) {
@@ -479,25 +478,7 @@ class mainController extends Controller
         }
 
     }
-//
-//    public function login(Request $request)
-//    {
-//
-//
-//        if ($request->isMethod('post')) {
-//
-//            $response = "sucessfuly Login";
-//            return Response::json($response);
-//
-//        }
-//        if (!Session::get('name')) {
-//            return view('users.login');
-//        } else {
-//            return redirect("api/v1/products/Uindex");
-//        }
-//
-//
-//    }
+
 
 
     public function history()
