@@ -1,0 +1,14 @@
+{
+  "name": "biddingsystem",
+  "description": "bidding system",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

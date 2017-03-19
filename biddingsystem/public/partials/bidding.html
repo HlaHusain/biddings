@@ -1,0 +1,84 @@
+
+
+<h2 class="text-center">Bidding System</h2>
+
+<div class="container cf">
+
+
+    <div  ng-controller="user">
+
+        <div class="row">
+            <input class="form-control" type="text" value="" ng-model="search" placeholder="Search..."/>
+        </div>
+        </br>
+
+        <div class="row">
+            <div>
+                <table   class=" table table-responsive" >
+
+                    <thead class="thead-inverse">
+                    <tr class="text-center" >
+
+                        <th class="text-center">Item</th>
+                        <th class="text-center">Description</th>
+                        <th class="text-center">Participant</th>
+                        <th class="text-center">Started</th>
+                        <th class="text-center">Current</th>
+                        <th class="text-center">Increment</th>
+                        <th class="text-center">Remaining</th>
+                    </tr>
+                    </thead>
+
+                    <tbody id="myTable">
+                    <tr class="text-center"  ng-repeat="data in myData " >
+                        {{data}}
+
+
+                        <td>{{data.productName}}</td>
+                        <td>{{data.productDesc}}</td>
+
+                        <td >{{data.numofParticpant}}</td>
+                        <td>{{data.startTime}}</td>
+                        <td class="text-center">
+                            <button  ng-if="data.status == 'opened' " class="btn btn-success btn-xs" ng-click="inc($index)">&#10010;</button>
+                            <button  ng-if="data.status == 'closed' " class="btn btn-success btn-xs" ng-click="inc($index)" disabled>&#10010;</button>
+                            {{data.maxCurrentBid}}
+                            <button ng-if="data.status == 'opened' " class="btn btn-danger btn-xs" ng-click="dec($index)">&#10134;</button>
+                            <button ng-if="data.status == 'closed' " class="btn btn-danger btn-xs" ng-click="dec($index)" disabled>&#10134;</button>
+                        </td>
+                        <td>{{data.incUnit}}</td>
+                        <!--                        <td>{{test(data.startTime,data.period,$index)}}</td>-->
+
+
+
+
+
+                        <!--                        <td>{{data.period}}</td>-->
+
+
+
+                        <td> {{start=data.startTime}}  <timer interval="1000" /> </td>
+                        <td><button ng-if="data.status == 'opened' " class="btn btn-info" ng-click="bid($index)">&#9998;Bid</button>
+                            <button ng-if="data.status == 'closed' " class="btn btn-info" ng-click="bid($index)" disabled>&#9998;Bid</button>
+                        </td>
+                    </tr>
+
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!--  <script src="app/countdown.js"></script> -->
+
+</div>
+
+</div>
+
+<div class="text-center">
+    <small>Images courtesy of <a target="_blank" href="http://unsplash.com">unsplash.com</a></small>
+</div>
+

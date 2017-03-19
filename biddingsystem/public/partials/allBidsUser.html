@@ -1,0 +1,66 @@
+
+
+<div class="container">
+    <!--<nav class="navbar navbar-default">-->
+        <!--<div class="container-fluid ">-->
+            <!--<ul class="nav navbar-nav ">-->
+
+                <!--<li  class="text-center active"><a href="#/all-bids-user">All Bids</a></li>-->
+                <!--<li class="text-center" ><a href="#/opened-bids-user">My Opened Bids</a></li>-->
+                <!--<li class="text-center" ><a  href="#/closed-bids-user">My Closed Bids</a></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</nav>-->
+
+    <h2 id="h2_inline" >All Bids  &#8352;</h2>
+    <div id="div_inline"  class="col-xs-3 " >
+        <input class="form-control" type="text" value="" ng-model="search" placeholder="Search..."/>
+    </div>
+    </br>
+
+    <div  ng-controller="user">
+        <div class="row">
+
+            <table   class=" table table-responsive" >
+
+                <thead>
+                <tr>
+
+                    <th >Item</th>
+                    <th >Description</th>
+                    <th >Remaining</th>
+                    <th >Started</th>
+                    <th >Max Current Bid</th>
+                </tr>
+                </thead>
+
+
+                </tbody>
+                <tbody id="myTable">
+                <tr ng-repeat="data in myData | filter : search" >
+
+                    <td>{{data.productName}}</td>
+                    <td>{{data.productDesc}}</td>
+                    <td ng-init="remaining(data.startTime,data.period,data.id,$index)">{{data.Remaining}}</td>
+                    <td >{{data.startTime}}</td>
+                    <td >
+                        <button  class="btn btn-success btn-xs" ng-click="inc($index,data.maxCurrentBid,data.incUnit)">&#10010; </button>
+                        <P id="p_inline" ng-init="data.maxCurrentBid=data.price">{{data.maxCurrentBid}}</P>
+                        <button  class="btn btn-danger btn-xs" ng-click="dec($index,data.maxCurrentBid,data.incUnit,data.price)">&#10134;
+                        </button>
+                    </td>
+
+                    <td ><button class="btn btn-info" ng-click="bid($index,data.id)">&#9998;Bid</button>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <!--  <script src="app/countdown.js"></script> -->
+
+</div>
+</div>

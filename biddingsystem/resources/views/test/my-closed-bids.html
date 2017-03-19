@@ -1,0 +1,61 @@
+<div class="container">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid ">
+      <ul class="nav navbar-nav ">
+        <li class="text-center" ><a href="#/all-bids">All Bids</a></li>
+        <li class="text-center" ><a href="#/my-opened-bids">My Opened Bids</a></li>
+        <li class="active text-center" ><a  href="#/my-closed-bids">My Closed Bids</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+
+  <h2>My Closed Bids  &#8352;</h2>
+  <p>Table below view My Closed biddings .</p>
+
+
+
+  <div  ng-controller="user">
+
+   <div class="row">
+     <input class="form-control" type="text" value="" ng-model="search" placeholder="Search..."/>
+   </div>
+   </br>
+
+   <div class="row">
+     <div class="table-responsive">
+      <table   class=" table table-inverse  table-bordered " >
+
+        <thead>
+          <tr class="text-center">
+            <th class="text-center">Item</th>
+            <th class="text-center">Description</th>
+            <th class="text-center">Participant</th>
+            <th class="text-center">Started</th>
+            <th class="text-center">Finished</th>
+
+            <th class="text-center">Value of the bid</th>
+          </tr>
+        </thead>
+
+        <tbody id="myTable">
+         <tr class="text-center"  ng-repeat="data in myData | filter : search   "  ng-if="data.status == 'closed' ">
+
+          <td>{{data.Item}}</td>
+          <td>{{data.Description}}</td>
+          <td >{{data.Participant}}</td>
+          <td>{{data.Started}}</td>
+          <td>Closed Bid</td>
+          <td>{{data.value-bid}}</td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+
+</div>
+
+
+
+</div>
+</div>

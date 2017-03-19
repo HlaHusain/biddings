@@ -1,0 +1,59 @@
+<div class="container">
+  <!--<nav class="navbar navbar-default">-->
+    <!--<div class="container-fluid ">-->
+      <!--<ul class="nav navbar-nav ">-->
+
+        <!--<li  class="text-center "><a href="#/all-bids-user">All Bids</a></li>-->
+        <!--<li class="text-center" ><a href="#/opened-bids-user">My Opened Bids</a></li>-->
+        <!--<li class="active text-center" ><a  href="#/closed-bids-user">My Closed Bids</a></li>-->
+      <!--</ul>-->
+    <!--</div>-->
+  <!--</nav>-->
+  
+  <h2 id="h2_inline" >Closed Bids  &#8352;</h2>
+  <div id="div_inline"  class="col-xs-3 " >
+     <input class="form-control" type="text" value="" ng-model="search" placeholder="Search..."/>
+   </div>
+   </br>
+   
+  <div  ng-controller="myClosedBids">
+   <div class="row">
+     <div>
+      <table   class=" table table-responsive" >
+
+        <thead>
+          <thead>
+          <tr>
+
+
+              <th >productName</th>
+              <th >productDesc</th>
+              <!--<th >Remaining</th>-->
+              <th >numofParticpant</th>
+              <th >maxCurrentBid</th>
+              <th >bidValue</th>
+              <th >winnerName</th>
+
+
+          </tr>
+          </thead>
+
+          <tbody id="myTable">
+          <tr ng-repeat="data in myData "  >
+
+              <td>{{data.productName}}</td>
+              <td>{{data.productDesc}}</td>
+              <!--<td ng-init="remaining(data.startTime,data.period,data.id,$index)">{{data.Remaining}}</td>-->
+              <td >{{data.numofParticpant}}</td>
+              <td >{{data.maxBid}}</td>
+              <td >{{data.bidValue}}</td>
+              <td >{{data.winnerName}}</td>
+          </tr>
+      </tbody>
+
+    </table>
+  </div>
+
+</div>
+</div>
+</div>

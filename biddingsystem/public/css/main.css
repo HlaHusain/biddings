@@ -1,0 +1,48 @@
+@media only screen and (max-width: 768px) {
+
+    td,th {
+        display: block;
+        text-align:center;
+
+    }
+
+}
+
+tr:nth-child(even) {background:  #FFE4E1}
+tr:nth-child(odd) {background: #CCC }
+
+th {
+    background:  #d3a308;
+}
+
+
+#h2_inline
+{
+    text-align:left;
+    float:left;
+}
+#div_inline
+{
+    text-align:right;
+    float:right;
+}
+#p_inline
+{
+    display: inline-block;
+    width:40%;
+    text-align:center;
+    text-overflow: ellipsis;
+}
+#left {
+    text-align:left;
+    float:left;
+}
+
+#right {
+    text-align:right;
+    float:right;
+}
+#center
+{
+    text-align:center;
+}

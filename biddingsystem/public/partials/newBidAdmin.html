@@ -1,0 +1,168 @@
+
+<div class="container" ng-controller="formCtrl">
+
+	<nav class="navbar navbar-default" >
+		<div class="container-fluid ">
+			<ul class="nav navbar-nav ">
+				<li  class="active text-center"><a href="#/new-bid">New Bid</a></li>
+				<li  class="text-center "><a href="#/running-bids-admin">Running Bids</a></li>
+				<li class=" text-center " ><a href="#/closed-bids-admin">Closed Bids</a></li>
+				<li class="text-center" ><a  href="#/history-admin">History</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<h2>Add New Bid</h2>
+
+
+	<!-- Trigger the modal with a button -->
+	<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add</button>
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">New Bidding</h4>
+				</div>
+				<div class="modal-body">
+					<div class="row" >
+						<!-- panel preview -->
+						<div   class="col-sm-12" >
+							<div class="panel panel-default" >
+								<div class="panel-body form-horizontal bid-form">
+									<form name="myForm" ng-submit="addRow()">
+										<div class="form-group">
+											<label for="item" class="col-sm-3 control-label">Item</label>
+											<div class="col-sm-5">
+												<input type="text" class="form-control" id="item" name="item"  ng-model="productName" required>
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="description" class="col-sm-3 control-label">Description</label>
+											<div class="col-sm-5">
+												<input type='text' rows="4" cols="50" class="form-control" id="description" name="description"
+													   ng-model="productDesc" required></input>
+											</div>
+										</div>
+
+
+
+										<!--<div class="form-group">-->
+											<!--<label class="col-sm-3 control-label">Start Date</label>-->
+											<!--<div class="form-group col-sm-5 ">-->
+												<!--<div class='input-group date' id='datetimepicker1'>-->
+													<!--<input type='text' class="form-control"  ng-model="$parent.startTime" required/>-->
+													<!--<span class="input-group-addon">-->
+												<!--<span class="glyphicon glyphicon-calendar"></span>-->
+											<!--</span>-->
+												<!--</div>-->
+											<!--</div>-->
+
+
+
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Start Date</label>
+											<div class='input-group date col-sm-5' id='datetimepicker1'>
+												<input type='text' class="form-control" ng-model="startTime" id="startTime"/>
+												<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+											</div>
+											<div class="col-sm-3">
+												<label>
+													<input type="checkbox" class="form-control"    ng-model="checkboxmodel" ng-init="checkboxmodel=false" >
+													Start Now
+												</label>
+											</div>
+
+										</div>
+
+
+										<div class="form-group">
+											<label for="period" class="col-sm-3 control-label">Bidding Period</label>
+											<div class="col-sm-5">
+												<input type="number" class="form-control" id="period" name="period" placeholder="Period in Hours" ng-model="period" min="1"  required>
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="price" class="col-sm-3 control-label">Starting Price</label>
+											<div class="col-sm-5">
+												<input type="number" class="form-control" id="price" name="price" ng-model="price"  min="1" required>
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="increment" class="col-sm-3 control-label">Increment</label>
+											<div class="col-sm-5">
+												<input type="number" class="form-control" id="increment" name="increment" ng-model="incUnit"  min="1" required>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-sm-12 text-center">
+												<input type="submit" class="btn btn-success " id="submit" value="Save"   >
+
+
+											</div>
+										</div>
+								</div>
+								</form>
+							</div>
+						</div> <!-- / panel preview -->
+					</div><!-- / row preview -->
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<div class="row">
+			<div class="col-xs-12" >
+				<div class="table-responsive" >
+					<table class="table preview-table" >
+						<thead>
+						<tr>
+							<th>Item</th>
+							<th>Description</th>
+							<th>Start Date</th>
+							<th>Period</th>
+							<th>Started</th>
+							<th>Increment</th>
+							<th></th>
+
+						</tr>
+						</thead>
+						<tbody>
+						<tr ng-repeat="bid in myData">
+							<td>{{bid.productName}}
+							</td>
+							<td>{{bid.productDesc}}
+							</td>
+							<td>{{bid.startTime}}
+							</td>
+							<td>{{bid.period}}
+							</td>
+							<td>{{bid.incUnit}} $
+							</td>
+							<td  ng-init="checkStart(bid.checkboxmodel,$index)">
+								<button ng-click="changeToStarted($index)" class="btn btn-danger btn-xs" >Start Now</button>
+							</td>
+							<!-- <td  ng-init="checkfunction(bid.checked,$index)">{{bid.button}}</td> -->
+							<!-- <td  ng-if="bid.checked">
+								<input type="button" value="Start Bid" class="btn btn-success"   ng-click="startBid(bid.Item)"/>
+							</td> -->
+						</tr>
+						</tbody> <!-- preview content goes here-->
+					</table>
+				</div>
+			</div>
+
+
+
+
+	</div></div>
